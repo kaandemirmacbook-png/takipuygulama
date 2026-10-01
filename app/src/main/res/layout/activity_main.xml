@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/cihazId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:paddingBottom="16dp"
+        android:text="Cihaz"/>
+
+    <TextView
+        android:id="@+id/durum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingBottom="24dp"
+        android:text="Başlamak için 'Takibi Başlat' düğmesine basın ve konum iznini 'Her zaman izin ver' seçin."/>
+
+    <Button
+        android:id="@+id/baslatBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Takibi Başlat"/>
+
+    <Button
+        android:id="@+id/durdurBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Takibi Durdur"/>
+
+    <Button
+        android:id="@+id/pilBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pil Ayarını Aç (önemli)"/>
+
+</LinearLayout>
