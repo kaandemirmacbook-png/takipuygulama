@@ -7,10 +7,10 @@ object Config {
     // ============================================================
 
     // 1) Sunucunuzdaki konum.php adresi (https önerilir):
-    const val SERVER_URL = "https://SUNUCUNUZ.com/konum.php"
+    const val SERVER_URL = "https://tasitnotu.com/toprak/konum.php"
 
     // 2) config.php içindeki GIZLI_ANAHTAR ile BİREBİR AYNI olmalı:
-    const val GIZLI_ANAHTAR = "buraya-uzun-rastgele-bir-anahtar-yaz"
+    const val GIZLI_ANAHTAR = "sdandheeed1224rfshheeeff"
 
     // 3) Bu telefonun panelde görünecek adı:
     const val CIHAZ_ADI = "oglum"
