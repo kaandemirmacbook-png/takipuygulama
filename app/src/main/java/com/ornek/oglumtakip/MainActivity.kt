@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -17,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var durumTv: TextView
 
-    // Konum + bildirim izni sonucu
     private val izinSonuc = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) { sonuclar ->
@@ -30,12 +30,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // "Her zaman izin ver" (arka plan konum) sonucu
     private val arkaPlanSonuc = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { _ ->
-        servisiBaslat()
-    }
+    ) { _ -> servisiBaslat() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +50,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.pilBtn).setOnClickListener { pilAyariniAc() }
+
+        // SOS butonu
+        findViewById<Button>(R.id.sosBtn).setOnClickListener {
+            val i = Intent(this, LocationForegroundService::class.java)
+            i.action = LocationForegroundService.EYLEM_SOS
+            ContextCompat.startForegroundService(this, i)
+            Toast.makeText(this, "SOS gönderiliyor...", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun izinleriIste() {
@@ -72,7 +77,6 @@ class MainActivity : AppCompatActivity() {
                 this, Manifest.permission.ACCESS_BACKGROUND_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
             if (!verildi) {
-                // Sistem "Her zaman izin ver" seçeneğini burada sorar
                 arkaPlanSonuc.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                 return
             }
