@@ -39,4 +39,16 @@
         android:layout_height="wrap_content"
         android:text="Pil Ayarını Aç (önemli)"/>
 
+    <Button
+        android:id="@+id/sosBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:text="🆘 SOS - YARDIM İSTE"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#D32F2F"/>
+
 </LinearLayout>
